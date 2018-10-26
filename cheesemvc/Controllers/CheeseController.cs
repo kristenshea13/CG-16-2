@@ -5,7 +5,7 @@ namespace cheesemvc.Controllers
 {
     public class CheeseController : Controller
     {
-        static private List<string> Cheeses = new List<string>();
+        static private Dictionary<string, string> Cheeses = new Dictionary<string, string>();
 
         public IActionResult Index()
         {
@@ -20,9 +20,9 @@ namespace cheesemvc.Controllers
 
         [HttpPost]
         [Route("/Cheese/Add")]
-        public IActionResult NewCheese(string name)
+        public IActionResult NewCheese(string name, string description)
         {
-            Cheeses.Add(name);
+            Cheeses.Add(name, description);
             return Redirect("/Cheese");
         }
     }
