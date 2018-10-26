@@ -25,5 +25,20 @@ namespace cheesemvc.Controllers
             Cheeses.Add(name, description);
             return Redirect("/Cheese");
         }
+
+        [HttpPost]
+
+        public IActionResult Delete(string[] deleteCheeses)
+        {
+            foreach (string cheese in deleteCheeses)
+            {
+                Cheeses.Remove(cheese);
+            }
+
+            return Redirect("/Cheese");
+
+        }
+
+
     }
 }
