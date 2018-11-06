@@ -8,16 +8,34 @@
     <p>No cheeses yet!</p>
 }
 
-    <form action="/Cheese/Delete" method="post">
-        <ul>
+
+    @*<form action="/Cheese/Delete" method="post">*@
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+
+            </tr>
+
+
+
             @foreach (var cheese in ViewBag.cheeses)
             {
-                <l1><input type="checkbox" name="deleteCheeses" value="@cheese.Key"> @cheese.Key - @cheese.Value</l1>
-                <br />
+
+                <tr>
+                    
+                    <td>@cheese.Name</td>
+                    <td>@cheese.Description</td>
+
+                </tr>
 
             }
-        </ul>
-        <button type="submit">Delete Cheese</button>
-    </form>
+
+        </table>
+
+        @*<button type="submit">Remove Cheese</button>*@
+
+    @*</form>*@
 
 
