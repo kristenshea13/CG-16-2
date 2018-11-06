@@ -18,14 +18,8 @@ namespace cheesemvc.Controllers
 
         [HttpPost]
         [Route("/Cheese/Add")]
-        public IActionResult NewCheese(string name, string description)
+        public IActionResult NewCheese(Cheese newCheese)
         {
-            Cheese newCheese = new Cheese
-            {
-                Name = name,
-                Description = description
-            };
-
             CheeseData.Add(newCheese);
 
             return Redirect("/Cheese");
