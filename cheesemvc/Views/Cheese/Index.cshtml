@@ -1,6 +1,4 @@
-﻿
-
-<h1>My Cheeses</h1>
+﻿<h1>My Cheeses</h1>
 <p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
 
 @if (ViewBag.cheeses.Count == 0)
@@ -8,34 +6,20 @@
     <p>No cheeses yet!</p>
 }
 
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
 
-    @*<form action="/Cheese/Delete" method="post">*@
+    @foreach (var cheese in ViewBag.cheeses)
+    {
 
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
+        <tr>
 
-            </tr>
+            <td>@cheese.Name</td>
+            <td>@cheese.Description</td>
+        </tr>
 
-
-
-            @foreach (var cheese in ViewBag.cheeses)
-            {
-
-                <tr>
-                    
-                    <td>@cheese.Name</td>
-                    <td>@cheese.Description</td>
-
-                </tr>
-
-            }
-
-        </table>
-
-        @*<button type="submit">Remove Cheese</button>*@
-
-    @*</form>*@
-
-
+    }
+</table>

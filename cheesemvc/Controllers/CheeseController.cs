@@ -1,16 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using cheesemvc.Models;
+﻿using cheesemvc.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace cheesemvc.Controllers
 {
     public class CheeseController : Controller
     {
-        static private List<Cheese> Cheeses = new List<Cheese>();
-
         public IActionResult Index()
         {
-            ViewBag.cheeses = Cheeses;
+            ViewBag.cheeses = CheeseData.GetAll();
             return View();
         }
 
@@ -23,20 +20,16 @@ namespace cheesemvc.Controllers
         [Route("/Cheese/Add")]
         public IActionResult NewCheese(string name, string description)
         {
-
-
             Cheese newCheese = new Cheese
             {
                 Name = name,
                 Description = description
             };
 
-            Cheeses.Add(newCheese);
+            CheeseData.Add(newCheese);
 
             return Redirect("/Cheese");
         }
-
-        
 
         //public IActionResult Delete(Cheese[] deleteCheeses)
         //{
@@ -52,23 +45,19 @@ namespace cheesemvc.Controllers
         public IActionResult Remove()
         {
             ViewBag.title = "Remove Cheeses";
-            ViewBag.cheeses = Cheeses;
+            ViewBag.cheeses = CheeseData.GetAll();
             return View();
-
         }
 
         [HttpPost]
         public IActionResult Remove(int[] cheeseIDs)
         {
-
             foreach (int cheeseID in cheeseIDs)
             {
-                Cheeses.RemoveAll(x => x.CheeseID == cheeseID);
+                CheeseData.Remove(cheeseID);
             }
 
             return Redirect("/");
         }
-
-
     }
 }

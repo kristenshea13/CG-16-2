@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace cheesemvc.Models
+﻿namespace cheesemvc.Models
 {
     public class Cheese
     {
@@ -12,19 +7,16 @@ namespace cheesemvc.Models
         public int CheeseID { get; set; }
         private static int nextID = 1;
 
-        public Cheese (string name, string description)
+        public Cheese(string name, string description)
         {
             Name = name;
             Description = description;
-
         }
 
-        public Cheese ()
+        public Cheese()
         {
             CheeseID = nextID;
             nextID++;
         }
-
-
     }
 }
