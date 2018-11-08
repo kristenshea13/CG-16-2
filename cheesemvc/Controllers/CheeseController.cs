@@ -58,7 +58,7 @@ namespace cheesemvc.Controllers
 
         public IActionResult Edit(int cheeseID)
         {
-            ViewBag.cheeseID = cheeseID;
+            ViewBag.cheeses.cheeseID = CheeseData.GetById(cheeseID);
             return View();
             //ask CheeseData for the object with the given cheeseId and put it in the ViewBag.
         }
@@ -68,7 +68,14 @@ namespace cheesemvc.Controllers
         {
             //not complete
 
+            
+            CheeseData.Equals(name, description);
+            
 
+
+
+
+                return Redirect("/");
 
         }
 

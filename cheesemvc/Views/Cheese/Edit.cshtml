@@ -10,14 +10,14 @@
 
     <h1>Add Cheese</h1>
     <label><strong>Cheese Type</strong></label>
-    <input name="name" type="text" />
+    <input name="name" type="text" value="@ViewBag.cheeses.name"/>
     &nbsp;
     &nbsp;
     &nbsp;
     <label><strong>Cheese Description</strong></label>
-    <input name="description" type="text" />
+    <input name="description" type="text" value="@ViewBag.cheeses.description" />
     &nbsp;
-    <input type="hidden" value="@ViewBag.cheese.CheeseID" name="id" />
+    <input type="hidden" value="@ViewBag.cheeses.cheeseID" name="id" />
     <input type="submit" value="Add Cheese!" />
 
 </form>
