@@ -53,5 +53,23 @@ namespace cheesemvc.Controllers
 
             return Redirect("/");
         }
+
+
+
+        public IActionResult Edit(int cheeseID)
+        {
+            
+            //ask CheeseData for the object with the given cheeseId and put it in the ViewBag.
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int cheeseID, string name, string description)
+        {
+            //not complete
+        }
+
+
+
+
     }
 }
