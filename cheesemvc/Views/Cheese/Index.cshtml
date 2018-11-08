@@ -19,17 +19,15 @@
 
             <td>@cheese.Name</td>
             <td>@cheese.Description</td>
+            <td><a asp-controller="Cheese" asp-action="Edit" asp-route-cheeseID="@cheese.CheeseID">edit</a></td>
         </tr>
 
     }
 
 
-
-
-
 </table>
 
-@*<a asp-controller="Cheese" asp-action="Edit" asp-route-cheeseId="@cheese.CheeseId">edit</a>*@
+
 
 <a asp-controller="Cheese" asp-action="Remove">Remove Cheese</a>
 
