@@ -1,5 +1,6 @@
 ﻿using cheesemvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace cheesemvc.Controllers
 {
@@ -7,8 +8,8 @@ namespace cheesemvc.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.cheeses = CheeseData.GetAll();
-            return View();
+            List<Cheese> cheeses = CheeseData.GetAll();
+            return View(cheeses);
         }
 
         public IActionResult Add()
@@ -78,9 +79,6 @@ namespace cheesemvc.Controllers
             cheese.Name = name;
             cheese.Description = description;
             
-            
-
-
 
                 return Redirect("/");
 
