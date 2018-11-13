@@ -1,4 +1,5 @@
 ﻿using cheesemvc.Models;
+using cheesemvc.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -14,28 +15,32 @@ namespace cheesemvc.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            AddCheeseViewModel addCheeseViewModel = new AddCheeseViewModel();
+            return View(addCheeseViewModel);
         }
 
         [HttpPost]
-        [Route("/Cheese/Add")]
-        public IActionResult NewCheese(Cheese newCheese)
+        
+        public IActionResult Add(AddCheeseViewModel addCheeseViewModel)
         {
-            CheeseData.Add(newCheese);
+            if(ModelState.IsValid)
+            {
+                Cheese newCheese = new Cheese
+                {
+                    Name = addCheeseViewModel.Name,
+                    Description = addCheeseViewModel.Description
+                };
 
-            return Redirect("/Cheese");
+                CheeseData.Add(newCheese);
+
+                return Redirect("/Cheese");
+            }
+
+            return View(addCheeseViewModel);
+            
         }
 
-        //public IActionResult Delete(Cheese[] deleteCheeses)
-        //{
-        //    foreach (Cheese cheese in deleteCheeses)
-        //    {
-        //        Cheeses.Remove(cheese);
-        //    }
-
-        //    return Redirect("/Cheese");
-
-        //}
+        
 
         public IActionResult Remove()
         {
